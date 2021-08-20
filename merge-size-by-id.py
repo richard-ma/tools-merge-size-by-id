@@ -48,11 +48,11 @@ class App:
                 data.append(row)
         return data
         
-    def writeCsvFromDict(self, filename, data, fieldnames=None, encoding="GBK"):
+    def writeCsvFromDict(self, filename, data, fieldnames=None, encoding="GBK", newline=''):
         if fieldnames is None:
             fieldnames = data[0].keys()
 
-        with open(filename, 'w+', encoding=encoding) as f:
+        with open(filename, 'w+', encoding=encoding, newline=newline) as f:
             writer = csv.DictWriter(f,
                 fieldnames=fieldnames)
             writer.writeheader()
